@@ -5,11 +5,11 @@ program main
    integer i
 
    do i = 1, N
-      a(i) = 0
+      ! a(i) = 0
       b(i) = i
       c(i) = i
    enddo
-!$acc data create(a)
+!$acc data copyout(a)
 !$acc kernels present(a)
    do i = 1, N
       a(i) = b(i) + c(i)
